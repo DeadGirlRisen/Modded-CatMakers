@@ -94,15 +94,6 @@ class CreationScreen(base_screens.Screens):
 
                 self.update_checkboxes_and_disable_dropdowns()
                 self.update_cat_image()
-            elif event.ui_element == self.checkboxes["hetero_eyes"]:
-                
-                # This will switch hetero eyes from off to on, and vis versa.
-                if global_vars.CREATED_CAT.pelt.eye_colour2:
-                    global_vars.CREATED_CAT.pelt.eye_colour2 = None
-                else:
-                    # We store the last eye color 2 in "stored eye color" for QOL reasons.
-                    global_vars.CREATED_CAT.pelt.eye_colour2 = global_vars.CREATED_CAT.pelt.stored_eye_color_2
-
                 self.build_dropdown_menus()
                 self.update_checkboxes_and_disable_dropdowns()
                 self.update_cat_image()
@@ -174,6 +165,9 @@ class CreationScreen(base_screens.Screens):
             elif event.ui_element == self.dropdown_menus["eye_color_1"]:
                 global_vars.CREATED_CAT.pelt.eye_colour = global_vars.eye_colors.inverse[event.text]
                 self.update_cat_image()
+            elif event.ui_element == self.dropdown_menus["eye_patterns"]:
+                global_vars.CREATED_CAT.pelt.eye_patterns = global_vars.eye_patterns.inverse[event.text]
+                self.update_cat_image()
             elif event.ui_element == self.dropdown_menus["eye_color_2"]:
                 global_vars.CREATED_CAT.pelt.eye_colour2 = global_vars.eye_colors.inverse[event.text]
                 global_vars.CREATED_CAT.pelt.stored_eye_color_2 = global_vars.eye_colors.inverse[event.text]
@@ -197,10 +191,7 @@ class CreationScreen(base_screens.Screens):
                 global_vars.CREATED_CAT.pelt.skin = global_vars.skin_colors.inverse[event.text]
                 
                 self.update_cat_image()
-            elif event.ui_element == self.dropdown_menus["tint_select"]:
-                global_vars.CREATED_CAT.pelt.tint = global_vars.tints.inverse[event.text]
-                
-                self.update_cat_image()
+
             elif event.ui_element == self.dropdown_menus["scar_1"]:
                 global_vars.CREATED_CAT.pelt.scar_slot_list[0] = global_vars.scars.inverse[event.text]
                 
@@ -454,15 +445,15 @@ class CreationScreen(base_screens.Screens):
                                                                  container=self.pattern_tab,
                                                                  object_id="#dropdown_label")
 
-        self.labels["eye color 2"] = pygame_gui.elements.UILabel(pygame.Rect((385, 125), (150, 25)), "Second Eye Color:",
+        self.labels["eye color 2"] = pygame_gui.elements.UILabel(pygame.Rect((405, 125), (150, 25)), "Second Eye Color:",
                                                                  container=self.pattern_tab,
                                                                  object_id="#dropdown_label")
 
-        self.labels["tint"] = pygame_gui.elements.UILabel(pygame.Rect((200, 180), (150, 25)), "Tint:",
+        self.labels["Eye Pattern"] = pygame_gui.elements.UILabel(pygame.Rect((210, 125), (150, 25)), "Eye Pattern:",
                                                           container=self.pattern_tab,
                                                           object_id="#dropdown_label")
 
-        self.labels["white_patches_tint"] = pygame_gui.elements.UILabel(pygame.Rect((360, 180), (-1, 25)),
+        self.labels["white_patches_tint"] = pygame_gui.elements.UILabel(pygame.Rect((210, 180), (-1, 25)),
                                                                         "White Patches/Points Tint:",
                                                                         container=self.pattern_tab,
                                                                         object_id="#dropdown_label")
@@ -603,10 +594,6 @@ class CreationScreen(base_screens.Screens):
                                                                                 pygame.Rect((185, 35), (180, 30)),
                                                                                 container=self.pattern_tab)
 
-        if global_vars.CREATED_CAT.pelt.white_patches:
-            white_patches = (global_vars.CREATED_CAT.pelt.white_patches.lower()).capitalize()
-        else:
-            white_patches = "None"
         self.dropdown_menus["white_patches_select"] = pygame_gui.elements.UIDropDownMenu(global_vars.white_patches.values(),
                                                                                          global_vars.white_patches[
                                                                                             global_vars.CREATED_CAT.pelt.white_patches
@@ -634,6 +621,13 @@ class CreationScreen(base_screens.Screens):
                                                                                 ],
                                                                                 pygame.Rect((20, 145), (180, 30)),
                                                                                 container=self.pattern_tab)
+        
+        self.dropdown_menus["eye_patterns"] = pygame_gui.elements.UIDropDownMenu(global_vars.eye_patterns.values(),
+                                                                                global_vars.eye_patterns[
+                                                                                    global_vars.CREATED_CAT.pelt.eye_patterns
+                                                                                ],
+                                                                                pygame.Rect((210, 145), (180, 30)),
+                                                                                container=self.pattern_tab)
 
         if global_vars.CREATED_CAT.pelt.eye_colour2:
             eye_color_2 = global_vars.CREATED_CAT.pelt.eye_colour2
@@ -645,23 +639,16 @@ class CreationScreen(base_screens.Screens):
                                                                                 global_vars.eye_colors[
                                                                                     eye_color_2
                                                                                 ],
-                                                                                pygame.Rect((385, 145), (180, 30)),
+                                                                                pygame.Rect((405, 145), (180, 30)),
                                                                                 container=self.pattern_tab)
         
-        self.dropdown_menus["tint_select"] = pygame_gui.elements.UIDropDownMenu(global_vars.tints.values(),
-                                                                                global_vars.tints[
-                                                                                    global_vars.CREATED_CAT.pelt.tint
-                                                                                ],
-                                                                                pygame.Rect(((200, 200), (150, 30))),
-                                                                                container=self.pattern_tab,
-                                                                                object_id="#dropup")
 
         self.dropdown_menus["white_patches_tint_select"] = \
             pygame_gui.elements.UIDropDownMenu(global_vars.white_patches_tint.values(),
                                                global_vars.white_patches_tint[
                                                     global_vars.CREATED_CAT.pelt.white_patches_tint
                                                ],
-                                               pygame.Rect(((360, 200), (205, 30))),
+                                               pygame.Rect(((210, 200), (205, 30))),
                                                container=self.pattern_tab,
                                                object_id="#dropup")
 
@@ -817,7 +804,7 @@ class CreationScreen(base_screens.Screens):
         # -------------------------------------------------------------------------------------------------------------
 
 
-        # Heterochromia
+        '''# Heterochromia
         if global_vars.CREATED_CAT.pelt.eye_colour2:
             self.checkboxes["hetero_eyes"] = custom_buttons.UIImageButton(pygame.Rect((210, 140), (34, 34)),
                                                                           "",
@@ -829,7 +816,7 @@ class CreationScreen(base_screens.Screens):
                                                                           "",
                                                                           object_id="#unchecked_checkbox",
                                                                           container=self.pattern_tab)
-            self.dropdown_menus["eye_color_2"].disable()
+            self.dropdown_menus["eye_color_2"].disable()'''
             
         # -------------------------------------------------------------------------------------------------------------
         # Pattern 2 Tab -----------------------------------------------------------------------------------------------

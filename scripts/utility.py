@@ -40,17 +40,17 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
     # setting the cat_sprite (bc this makes things much easier)
     if not no_not_working and cat.pelt.not_working and age != 'newborn':
         if age in ['kitten', 'adolescent']:
-            cat_sprite = str(19)
+            cat_sprite = str(37)
         else:
-            cat_sprite = str(18)
+            cat_sprite = str(36)
     elif cat.pelt.paralyzed and age != 'newborn' and not no_para:
         if age in ['kitten', 'adolescent']:
-            cat_sprite = str(17)
+            cat_sprite = str(32)
         else:
             if cat.pelt.length == 'long':
-                cat_sprite = str(16)
+                cat_sprite = str(31)
             else:
-                cat_sprite = str(15)
+                cat_sprite = str(30)
     else:
         if age == 'elder':
             age = 'senior'
@@ -83,14 +83,14 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             # Add patches onto cat.
             new_sprite.blit(patches, (0, 0))
 
-        # TINTS
+        '''# TINTS
         if cat.pelt.tint != "none" and cat.pelt.tint in Sprites.cat_tints["tint_colours"]:
             # Multiply with alpha does not work as you would expect - it just lowers the alpha of the
             # entire surface. To get around this, we first blit the tint onto a white background to dull it,
             # then blit the surface onto the sprite with pygame.BLEND_RGB_MULT
             tint = pygame.Surface((sprites.size, sprites.size)).convert_alpha()
             tint.fill(tuple(Sprites.cat_tints["tint_colours"][cat.pelt.tint]))
-            new_sprite.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
+            new_sprite.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)'''
 
         # draw white patches
         if cat.pelt.white_patches is not None:
@@ -119,12 +119,19 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
         if cat.pelt.vitiligo:
             new_sprite.blit(sprites.sprites['white' + cat.pelt.vitiligo + cat_sprite], (0, 0))
 
-        # draw eyes & scars1
-        eyes = sprites.sprites['eyes' + cat.pelt.eye_colour + cat_sprite].copy()
+        # draw eyes
         if cat.pelt.eye_colour2 != None:
-            eyes.blit(sprites.sprites['eyes2' + cat.pelt.eye_colour2 + cat_sprite], (0, 0))
-        new_sprite.blit(eyes, (0, 0))
+            eyes = sprites.sprites["eyes" + cat.pelt.eye_colour + cat_sprite].copy().convert_alpha()
+            new_sprite.blit(eyes, (0, 0))
+            second_eye = sprites.sprites["eyes" + cat.pelt.eye_colour2 + cat_sprite].copy().convert_alpha()
+            second_eye.blit(sprites.sprites["eyes2" + cat.pelt.eye_patterns + cat_sprite], (0, 0),
+                            special_flags=pygame.BLEND_RGBA_MULT)
+            new_sprite.blit(second_eye, (0, 0))
+        else:
+            eyes = sprites.sprites['eyes' + cat.pelt.eye_colour + cat_sprite].copy()
+            new_sprite.blit(eyes, (0, 0))
 
+        #scars1
         if not scars_hidden:
             for scar in cat_scars:
                 if scar in cat.pelt.scars1:
@@ -152,14 +159,32 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                 if scar in cat.pelt.scars2:
                     new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0), special_flags=blendmode)
 
-        # draw accessories
-        if not acc_hidden:        
+         # draw accessories
+        if not acc_hidden:
             if cat.pelt.accessory in cat.pelt.plant_accessories:
                 new_sprite.blit(sprites.sprites['acc_herbs' + cat.pelt.accessory + cat_sprite], (0, 0))
             elif cat.pelt.accessory in cat.pelt.wild_accessories:
                 new_sprite.blit(sprites.sprites['acc_wild' + cat.pelt.accessory + cat_sprite], (0, 0))
             elif cat.pelt.accessory in cat.pelt.collars:
                 new_sprite.blit(sprites.sprites['collars' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.living_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.plant2_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.wild2_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.beach_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.mountain_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.plains_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.forest_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.special_accessories:
+                new_sprite.blit(sprites.sprites['acc_moss' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.dog_collars:
+                new_sprite.blit(sprites.sprites['dogcollars' + cat.pelt.accessory + cat_sprite], (0, 0))
 
         # Apply fading fog
         if cat.pelt.opacity <= 97 and not cat.prevent_fading and game.settings["fading"] and dead:
@@ -188,8 +213,10 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
         if cat.pelt.reverse:
             new_sprite = pygame.transform.flip(new_sprite, True, False)
 
-    except (TypeError, KeyError):
-        print("Failed to load sprite")
+    except KeyError as ke:
+        print("Failed to load sprite due to KeyError:", ke)
+    except TypeError as te:
+        print("Failed to load sprite due to TypeError:", te)
 
         # Placeholder image
         new_sprite = image_cache.load_image(f"sprites/error_placeholder.png").convert_alpha()
