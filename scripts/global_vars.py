@@ -44,7 +44,7 @@ tortie_patches_patterns = bidict({"single": "Plain", "tabby": "Tabby", "bengal":
                                   "speckled": "Speckled Tabby", "agouti": "Agouti", "classic": "Classic Tabby",
                                   "mackerel": "Mackerel Tabby", "sokoke": "Sokoke", "abyssinian": "Abyssinian",
                                   "brindle": "Brindle", "braided": "Braided", "splotch": "Splotch", "saber": "Saber",
-                                  "faded": "Faded", 'Masked': "Masked"})
+                                  "faded": "Faded", 'masked': "Masked"})
 tortie_patches_patterns = sort_bidict(tortie_patches_patterns)
 
 tortie_patches_shapes = bidict({"ONE": "One", "TWO": "Two", "THREE": "Three", "FOUR": "Four",  'REDTAIL': "Redtail",
