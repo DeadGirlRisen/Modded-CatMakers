@@ -114,10 +114,10 @@ class Sprites():
             'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
             'bengalcolours', 'marbledcolours', 'rosettecolours', 'smokecolours', 'tickedcolours', 
             'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours', 'singlestripecolours',
-            'maskedcolours', 
+            'maskedcolours', 'moreeyes', 'moreeyes2',
             'shadersnewwhite', 'lineartdead', 'tortiepatchesmasks', 
             'medcatherbs', 'lineartdf', 'lightingnew', 'fademask',
-            'fadestarclan', 'fadedarkforest'
+            'fadestarclan', 'fadedarkforest', 'eyeswood', 'eyeswood2'
 
         ]:
             self.spritesheet(f"sprites/{x}.png", x)
@@ -146,6 +146,26 @@ class Sprites():
                 'PALEYELLOW', 'GOLD', 'GREENYELLOW']):
             self.make_group('eyes', (a, 1), f'eyes{i}')
             self.make_group('eyes2', (a, 1), f'eyes2{i}')
+        for a, i in enumerate(
+                ['BROWN', 'CEDAR', 'CHRISTMAS', 'COTTON CANDY', 'DARK PINE', 'FALL',
+                'FOREST FIRE', 'GOLD MOON', 'HALLOWEEN', 'LOBELIA', 'MIDNIGHT', 'MOONSTONE']):
+            self.make_group('eyeswood', (a, 0), f'eyes{i}')
+            self.make_group('eyeswood2', (a, 0), f'eyes2{i}')
+        for a, i in enumerate(
+                ['OXIDIZED', 'SNOW', 'BERRY BANANA', 'SUNSET BLUE', 'SUNSET ORANGE', 'SUNSET PURPLE',
+                'WALNUT', 'WORMY', 'BLUE HAZEL']):
+            self.make_group('eyeswood', (a, 1), f'eyes{i}')
+            self.make_group('eyeswood2', (a, 1), f'eyes2{i}')
+        for a, i in enumerate(
+                ['ROSE', 'TROPICAL GREEN', 'SEAFOAM', 'LIGHT FLAME', 'CLOUDY', 'RED', 
+                'TROPICAL RED', 'TURQUOISE', 'SWAMP', 'RAINY', 'AQUAMARINE', 'EARTH']):
+            self.make_group('moreeyes', (a, 0), f'eyes{i}')
+            self.make_group('moreeyes2', (a, 0), f'eyes2{i}')
+        for a, i in enumerate(
+                ['PUMPKIN', 'LILAC', 'PERIWINKLE', 'VIOLET', 'POND', 'DIRT'
+                ]):
+            self.make_group('moreeyes', (a, 1), f'eyes{i}')
+            self.make_group('moreeyes2', (a, 1), f'eyes2{i}')
 
         # white patches
         for a, i in enumerate(['FULLWHITE', 'ANY', 'TUXEDO', 'LITTLE', 'COLOURPOINT', 'VAN', 'ANYTWO',

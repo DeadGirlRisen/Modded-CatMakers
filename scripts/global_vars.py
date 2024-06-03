@@ -61,16 +61,32 @@ eye_colors = bidict( {'YELLOW': "Yellow", 'AMBER': "Amber", 'HAZEL': "Hazel", 'P
                       'GREEN': "Green", 'BLUE': "Blue", 'DARKBLUE': "Dark Blue", 'GREY': "Grey", 'CYAN': "Cyan",
                       'EMERALD': "Emerald", 'PALEBLUE': "Pale Blue", 'PALEYELLOW': "Pale Yellow", 'GOLD': "Gold",
                       'HEATHERBLUE': "Heather Blue", 'SAGE': "Sage", 'COBALT': "Cobalt",
-                      'SUNLITICE': "Sunlit Ice", "GREENYELLOW": "Green-Yellow", 'COPPER': 'Copper', 'BRONZE': 'Bronze',
-                      'SILVER': 'Silver'})
+                      'SUNLITICE': "Sunlit Ice", "GREENYELLOW": "Green-Yellow", 'COPPER': "Copper", 'BRONZE': "Bronze",
+                      'SILVER': "Silver", 'BROWN': "Brown", 'CEDAR': "Cedar", 'CHRISTMAS': "Christmas",
+                      'COTTON CANDY': "Cotton Candy", 'DARK PINE': "Dark Pine", 'FALL': "Fall", 'FOREST FIRE': "Forest Fire",
+                      'GOLD MOON': "Gold Moon", 'HALLOWEEN': "Halloween", 'LOBELIA': "Lobelia", 'MIDNIGHT': "Midnight",
+                      'MOONSTONE': "Moonstone", 'OXIDIZED': "Oxidized",'SNOW': "Snow", 'BERRY BANANA': "Berry Banana",
+                      'SUNSET BLUE': "Sunset Blue", 'SUNSET ORANGE': "Sunset Orange", 'SUNSET PURPLE': "Sunset Purple",
+                      'WALNUT': "Walnut", 'WORMY': "Wormy", 'BLUE HAZEL': "Blue Hazel", 'ROSE': "Rose",
+                      'TROPICAL GREEN': "Tropical Green", 'SEAFOAM': "Seafoam", 'LIGHT FLAME': "Light Flame",
+                      'CLOUDY': "Cloudy", 'RED': "Red", 'TROPICAL RED': "Tropical Red", 'TURQUOISE': "Torquoise",
+                      'SWAMP': "Swamp", 'RAINY': "Rainy", 'AQUAMARINE': "Aquamarine", 'EARTH': "Earth", 'PUMPKIN': "Pumpkin",
+                      'LILAC': "Lilac", 'PERIWINKLE': "Periwinkle", 'VIOLET': "Violet", 'POND':"Pond", 'DIRT': "Dirt" })
 eye_colors = sort_bidict(eye_colors)
 
 tints = bidict({"none": "None", "pink": "Pink", "gray": "Gray", "red": "Red", "black": "Black", "orange": "Orange",
-                "yellow": "Yellow", "purple": "Purple", "blue": "Blue"})
+                "yellow": "Yellow", "purple": "Purple", "blush": "Blush", "rosy": "Rosy", "redwood": "Redwood",
+                "maroon": "Maroon", "sandy":"Sandy", "beige": "Beige", "coral": "Coral", "tan": "Tan", "cream": "Cream",
+                "blue": "Blue", "willow": "Willow", "lilac": "Lilac", "plum": "Plum", "cadet": "Cadet", "cobalt": "Cobalt",
+                "bluegray": "Bluegray", "flint": "Flint", "acacia": "Acacia", "bronze": "Bronze", "sooty": "Sooty",
+                "plum": "Plum", "lilac": "Lilac", "darkpurple": "DarkPurple", })
 tints = sort_bidict(tints, 'none')
 
-white_patches_tint = bidict({"none": "None", "darkcream": "Dark Cream", "cream": "Cream", "offwhite": "Blue",
-                             "gray": "Gray", "pink": "Pink"})
+white_patches_tint = bidict({"none": "None", "darkcream": "Dark Cream", "cream": "Cream", "offwhite": "Offwhite",
+                             "gray": "Gray", "ashgray": "Ashgray", "violet": "Violet", "powder": "Powder",
+                             "mocha": "Mocha", "honeydew": "Honeydew", "pink": "Pink", "orange": "Orange",
+                             "vanilla": "Vanilla", "coffee": "Coffee", "malted": "Malted", "dawn": "Dawn", "peach": "Peach",
+                             "cherry": "cherry", "ebb": "Ebb", "almond": "Almond", })
 
 skin_colors = bidict({'BLACK': "Black", 'RED': "Red", 'PINK': "Pink", 'DARKBROWN': "Dark Brown", 'BROWN': "Brown",
                       'LIGHTBROWN': "Light Brown", 'DARK': "Dark", 'DARKGREY': "Dark Gray", 'GREY': "Gray",
