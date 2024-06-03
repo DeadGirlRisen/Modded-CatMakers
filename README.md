@@ -1,4 +1,5 @@
 # ClanGen CatMaker
+Beetles Edition made by Snickers on discord ^^
 
 ### By: Keyraven 
 
