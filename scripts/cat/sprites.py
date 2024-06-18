@@ -114,10 +114,10 @@ class Sprites():
             'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
             'bengalcolours', 'marbledcolours', 'rosettecolours', 'smokecolours', 'tickedcolours', 
             'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours', 'singlestripecolours',
-            'maskedcolours', 'moreeyes', 'moreeyes2',
+            'maskedcolours', 'beetlemore', 'beetlemore2',
             'shadersnewwhite', 'lineartdead', 'tortiepatchesmasks', 
             'medcatherbs', 'lineartdf', 'lightingnew', 'fademask',
-            'fadestarclan', 'fadedarkforest', 'eyeswood', 'eyeswood2'
+            'fadestarclan', 'fadedarkforest', 'beetleeyes', 'beetleeyes2'
 
         ]:
             self.spritesheet(f"sprites/{x}.png", x)
@@ -147,24 +147,24 @@ class Sprites():
             self.make_group('eyes', (a, 1), f'eyes{i}')
             self.make_group('eyes2', (a, 1), f'eyes2{i}')
         for a, i in enumerate(
-                ['BROWN', 'CEDAR', 'CHRISTMAS', 'COTTON CANDY', 'DARK PINE', 'FALL',
-                'FOREST FIRE', 'GOLD MOON', 'HALLOWEEN', 'LOBELIA', 'MIDNIGHT', 'MOONSTONE']):
-            self.make_group('eyeswood', (a, 0), f'eyes{i}')
-            self.make_group('eyeswood2', (a, 0), f'eyes2{i}')
+                ['ROSE', 'ALGAE', 'SEAFOAM', 'LIGHTFLAME', 'CLOUDY', 'RED',
+                'TURQUOISE', 'SWAMP', 'RAINY', 'AQUAMARINE', 'EARTH', 'PUMPKIN']):
+            self.make_group('beetleeyes', (a, 0), f'eyes{i}')
+            self.make_group('beetleeyes2', (a, 0), f'eyes2{i}')
         for a, i in enumerate(
-                ['OXIDIZED', 'SNOW', 'BERRY BANANA', 'SUNSET BLUE', 'SUNSET ORANGE', 'SUNSET PURPLE',
-                'WALNUT', 'WORMY', 'BLUE HAZEL']):
-            self.make_group('eyeswood', (a, 1), f'eyes{i}')
-            self.make_group('eyeswood2', (a, 1), f'eyes2{i}')
+                ['LILAC', 'PERIWINKLE', 'VIOLET', 'POND', 'DIRT', 'BROWN',
+                'CEDAR', 'CHRISTMAS', 'COTTON CANDY']):
+            self.make_group('beetleeyes', (a, 1), f'eyes{i}')
+            self.make_group('beetleeyes2', (a, 1), f'eyes2{i}')
         for a, i in enumerate(
                 ['DARK PINE', 'FALL', 'FOREST FIRE', 'GOLD MOON', 'HALLOWEEN', 'LOBELIA', 
                 'MIDNIGHT', 'MOONSTONE', 'OXIDIZED', 'SNOW', 'BERRY BANANA', 'DAWN SKY']):
-            self.make_group('moreeyes', (a, 0), f'eyes{i}')
-            self.make_group('moreeyes2', (a, 0), f'eyes2{i}')
+            self.make_group('beetlemore', (a, 0), f'eyes{i}')
+            self.make_group('beetlemore2', (a, 0), f'eyes2{i}')
         for a, i in enumerate(
                 ['TWILIGHT SKY', 'WORMY', 'BLUE HAZEL', 'THUNDERBOLT', 'VOLCANO', 'SEASHELL', 'PARADOX', 'CURSE', 'BLESSING']):
-            self.make_group('moreeyes', (a, 1), f'eyes{i}')
-            self.make_group('moreeyes2', (a, 1), f'eyes2{i}')
+            self.make_group('beetlemore', (a, 1), f'eyes{i}')
+            self.make_group('beetlemore2', (a, 1), f'eyes2{i}')
 
         # white patches
         for a, i in enumerate(['FULLWHITE', 'ANY', 'TUXEDO', 'LITTLE', 'COLOURPOINT', 'VAN', 'ANYTWO',
