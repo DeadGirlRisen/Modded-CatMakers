@@ -71,7 +71,9 @@ eye_colors = bidict( {'YELLOW': "Yellow", 'AMBER': "Amber", 'HAZEL': "Hazel", 'P
                       'TROPICAL GREEN': "Tropical Green", 'SEAFOAM': "Seafoam", 'LIGHT FLAME': "Light Flame",
                       'CLOUDY': "Cloudy", 'RED': "Red", 'TROPICAL RED': "Tropical Red", 'TURQUOISE': "Torquoise",
                       'SWAMP': "Swamp", 'RAINY': "Rainy", 'AQUAMARINE': "Aquamarine", 'EARTH': "Earth", 'PUMPKIN': "Pumpkin",
-                      'LILAC': "Lilac", 'PERIWINKLE': "Periwinkle", 'VIOLET': "Violet", 'POND':"Pond", 'DIRT': "Dirt" })
+                      'LILAC': "Lilac", 'PERIWINKLE': "Periwinkle", 'VIOLET': "Violet", 'POND':"Pond", 'DIRT': "Dirt", 'ALGAE': "Algae",
+                      'DAWN SKY': "Dawn Sky", 'TWILIGHT SKY': "Twilight Sky", 'THUNDERBOLT': "Thunderbolt", 'VOLCANO': "Volcano",
+                      'SEASHELL': "Seashell", 'PARADOX': "Paradox", 'CURSE': "Curse",'BLESSING': "Blessing" })
 eye_colors = sort_bidict(eye_colors)
 
 tints = bidict({"none": "None", "pink": "Pink", "gray": "Gray", "red": "Red", "black": "Black", "orange": "Orange",

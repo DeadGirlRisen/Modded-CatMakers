@@ -157,13 +157,12 @@ class Sprites():
             self.make_group('eyeswood', (a, 1), f'eyes{i}')
             self.make_group('eyeswood2', (a, 1), f'eyes2{i}')
         for a, i in enumerate(
-                ['ROSE', 'TROPICAL GREEN', 'SEAFOAM', 'LIGHT FLAME', 'CLOUDY', 'RED', 
-                'TROPICAL RED', 'TURQUOISE', 'SWAMP', 'RAINY', 'AQUAMARINE', 'EARTH']):
+                ['DARK PINE', 'FALL', 'FOREST FIRE', 'GOLD MOON', 'HALLOWEEN', 'LOBELIA', 
+                'MIDNIGHT', 'MOONSTONE', 'OXIDIZED', 'SNOW', 'BERRY BANANA', 'DAWN SKY']):
             self.make_group('moreeyes', (a, 0), f'eyes{i}')
             self.make_group('moreeyes2', (a, 0), f'eyes2{i}')
         for a, i in enumerate(
-                ['PUMPKIN', 'LILAC', 'PERIWINKLE', 'VIOLET', 'POND', 'DIRT'
-                ]):
+                ['TWILIGHT SKY', 'WORMY', 'BLUE HAZEL', 'THUNDERBOLT', 'VOLCANO', 'SEASHELL', 'PARADOX', 'CURSE', 'BLESSING']):
             self.make_group('moreeyes', (a, 1), f'eyes{i}')
             self.make_group('moreeyes2', (a, 1), f'eyes2{i}')
 
